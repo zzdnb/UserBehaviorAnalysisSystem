@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据上传</title>
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/tail.css">
+
+</head>
+<body class="body2">
+<!--顶部-->
+<header class="header left">
+    <div class="left nav">
+        <ul>
+            <li><i class="nav_1"></i><a href="index.html">数据概览</a></li>
+            <li><i class="nav_2"></i><a href="carContrl.html">车辆监控</a></li>
+            <li><i class="nav_3"></i><a href="map.html">地图界面</a></li>
+
+
+        </ul>
+    </div>
+    <div class="header_center left">
+        <h2><strong>基于优逸客的用户行为分析系统</strong></h2>
+        <p class="color_font"><small>User behavior analysis system for YYK</small></p>
+    </div>
+    <div class="right nav text_right">
+        <ul>
+            <li><i class="nav_7"></i><a href="static.html">查询统计</a></li>
+            <li class="nav_active"><i class="nav_8"></i><a href="message.html">信息录入</a></li>
+            <li><i class="nav_4"></i><a href="table1.html">表格界面</a></li>
+        </ul>
+    </div>
+</header>
+
+<div id="app">
+    <!-- 顶部欢迎模块 -->
+    <div style="color: blue;display: flex;justify-content: center; margin:0 auto;width: 200px;height: 100px">
+        <img src="../static/img/hdfs.png">
+    </div>
+    <h1 style="color: blue;padding:50rpx;display: flex;justify-content: center;">{{text}}</h1>
+    <!-- 面包屑导航 -->
+    <!-- 上传文件 -->
+    <div style="display: flex; padding-top: 50px">
+        <div class="text-nowrap" style="margin-left: 2vw;clear: both;">
+            <form id="myform" method="post" enctype="multipart/form-data" action="localhost:8080/hdfs/uploadFile"
+                  style="display: flex;">
+                <input type="file" name="file" @change="getFile($event)"/>
+                <button class="btn btn-default btn-sm" style="color:green;border-color: green;margin-right: 10vw;"
+                        value="上传文件" @click="submitForm($event)">上传文件
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="table-striped">
+        <table class="table">
+            <thead style="background-color: black;color:white;">
+            <tr>
+                <th class="text-center" style="width: 15vw;">序号</th>
+                <th class="text-center" style="width: 15vw;">文件名</th>
+                <th class="text-center" style="width: 15vw;">属性</th>
+                <th class="text-center" style="width: 15vw;">大小</th>
+                <th class="text-center" style="width: 40vw;">可执行操作</th>
+            </tr>
+            </thead>
+            <tbody id="FileList">
+            <tr class="text-center" v-for="(file,index) in FileList">
+                <td style="vertical-align:middle;text-align:center;">{{index+1}}</td>
+                <td style="vertical-align:middle;text-align:center;">{{file.name}}</td>
+                <td style="vertical-align:middle;text-align:center;">{{file.isDir}}</td>
+                <td style="vertical-align:middle;text-align:center;">{{file.size}}</td>
+                <td style="vertical-align:middle;text-align:center;">
+                    <button type="button" class="btn btn-default btn-sm" style="border-color:#34a0ff;color:#34a0ff;"
+                            v-on:click="download" :data-name="file.name">
+                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="color:#34a0ff;"></span>&nbsp;下载
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm" style="color: red; border-color: red;"
+                            v-on:click="remove" :data-name="file.name">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color:red"></span>&nbsp;删除
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm"
+                            style="color: rgb(66, 177, 185); border-color: rgb(66, 177, 185);" v-on:click="intoDir"
+                            :data-name="file.name" v-if="file.isDir=='Folder'">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"
+                              style="color:rgb(66, 177, 185)"></span>&nbsp;进入文件夹
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-left:90vw">
+        <button type="button" class="btn btn-info btn-sm" v-on:click="backDir" v-if="nowPath.length>1">
+            <span class="glyphicon glyphicon-left"></span>返回上一级
+        </button>
+    </div>
+
+</div>
+
+
+</body>
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- VUE 生产环境版本 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- VUE使用axios发送请求 -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- 引入js文件 -->
+<script src="../static/js/main.js"></script>
+<!-- 包括所有已编译的插件 -->
+<link href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+</html>
+
+
+</body>
+</html>
