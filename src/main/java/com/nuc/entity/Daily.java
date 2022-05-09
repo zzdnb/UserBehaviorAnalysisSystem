@@ -1,8 +1,6 @@
 package com.nuc.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import org.apache.hadoop.io.Writable;
 
 import java.io.DataInput;
@@ -19,9 +17,7 @@ import java.io.Serializable;
  * @网站 https://blog.zzdnb.cn
  * 日报实体类
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Daily implements Serializable, Writable {
     //反序列化保持一致
     private static final long serialVersionUID = 1L;
@@ -46,6 +42,110 @@ public class Daily implements Serializable, Writable {
     //日报/周报 0/1
     private String isDaily;
 
+    public Daily(String id, String studentNo, String classNo, String time, String motto, String workContent, String completion, String note, String addTime, String isDaily) {
+        this.id = id;
+        this.studentNo = studentNo;
+        this.classNo = classNo;
+        this.time = time;
+        this.motto = motto;
+        this.workContent = workContent;
+        this.completion = completion;
+        this.note = note;
+        this.addTime = addTime;
+        this.isDaily = isDaily;
+    }
+
+    public Daily() {
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getStudentNo() {
+        return studentNo;
+    }
+
+    public void setStudentNo(String studentNo) {
+        this.studentNo = studentNo;
+    }
+
+    public String getClassNo() {
+        return classNo;
+    }
+
+    public void setClassNo(String classNo) {
+        this.classNo = classNo;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getMotto() {
+        return motto;
+    }
+
+    public void setMotto(String motto) {
+        this.motto = motto;
+    }
+
+    public String getWorkContent() {
+        return workContent;
+    }
+
+    public void setWorkContent(String workContent) {
+        this.workContent = workContent;
+    }
+
+    public String getCompletion() {
+        return completion;
+    }
+
+    public void setCompletion(String completion) {
+        this.completion = completion;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(String addTime) {
+        this.addTime = addTime;
+    }
+
+    public String getIsDaily() {
+        return isDaily;
+    }
+
+    public void setIsDaily(String isDaily) {
+        this.isDaily = isDaily;
+    }
+
+    @Override
+    public String toString() {
+        return id + ',' + studentNo + ',' + classNo + ',' + time + ',' + motto + ',' + workContent + ',' + completion + ',' + note + ',' + addTime + ',' + isDaily;
+    }
 
     @Override
     public void write(DataOutput dataOutput) throws IOException {
@@ -61,7 +161,6 @@ public class Daily implements Serializable, Writable {
         dataOutput.writeUTF(addTime);
         dataOutput.writeUTF(isDaily);
     }
-
 
 
     @Override
