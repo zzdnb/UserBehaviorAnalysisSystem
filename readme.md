@@ -2,7 +2,7 @@
 ## 启动服务所需组件
 服务器 + hadoop 3.1.3 hive 3.1.2 mysql8.0+ tmux
 启动步骤：
-1.启动前关闭防火墙 systemctl stop firewalld 或者 service firewalld stop  记住要打开安全组
+1. 启动前关闭防火墙 systemctl stop firewalld 或者 service firewalld stop  记住要打开安全组
 2. 启动hadoop服务 去 hadoop目录下 ./sbin/start-all.sh
 3. 启动hive服务 去hive目录下  ./bin/hiveserver2
 4. 写接口测试就行了
