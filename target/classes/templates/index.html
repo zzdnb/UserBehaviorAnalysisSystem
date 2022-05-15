@@ -1,49 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>首页界面</title>
+    <title>学员考试分析界面</title>
     <link rel="stylesheet" href="../static/css/base.css">
+    <script src="../static/js/jquery/jQuery-2.2.0.min.js"></script>
+    <script src="../static/js/echarts-all.js"></script>
+    <script src="../static/js/base.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5ieMMexWmzB9jivTq6oCRX9j&callback"></script>
+    <script src="../static/js/map.js"></script>
 </head>
 <body>
 <!--顶部-->
 <header class="header left">
     <div class="left nav">
         <ul>
-            <li class="nav_active"><i class="nav_1"></i><a href="index.html">数据概览</a> </li>
-            <li><i class="nav_2"></i><a href="carContrl.html">车辆监控</a> </li>
-            <li><i class="nav_3"></i><a href="map.html">地图界面</a> </li>
+            <li><i class="nav_1"></i><a href="index.html">数据概览</a></li>
 
-
-
-            </ul>
-    </div>
-    <div class="header_center left">
-        <h2><strong>xx区智慧旅游综合服务平台</strong></h2>
-        <p class="color_font"><small>Comprehensive service platform for smart tourism</small></p>
-    </div>
-    <div class="right nav text_right">
-        <ul> <li><i class="nav_7"></i><a href="static.html">查询统计</a> </li>
-            <li><i class="nav_8"></i><a href="message.html">信息录入</a> </li>
-            <li><i class="nav_4"></i><a href="table1.html">表格界面</a> </li>
         </ul>
     </div>
-    <!--<nav class="left nav">-->
-        <!--<ul>-->
-            <!--<li class="nav_active"><i class="nav_1"></i><a href="index.html">数据概览</a> </li>-->
-            <!--<li><i class="nav_2"></i><a href="carContrl.html">车辆监控</a> </li>-->
-            <!--<li><i class="nav_3"></i><a href="map.html">地图界面</a> </li>-->
-            <!--<li><i class="nav_4"></i><a href="javascript:void(0)">表格界面</a><ul class="li_ul">-->
-                <!--<li><a href="table1.html">表格一</a> </li>-->
-                <!--<li><a href="table2.html">表格二</a> </li>-->
-
-            <!--</ul> </li>-->
-            <!--&lt;!&ndash;<li><i class="nav_5"></i><a href="#">车载视频</a> </li>&ndash;&gt;-->
-            <!--&lt;!&ndash;<li><i class="nav_6"></i><a href="#">视频监控</a> </li>&ndash;&gt;-->
-            <!--<li><i class="nav_7"></i><a href="static.html">查询统计</a> </li>-->
-            <!--<li><i class="nav_8"></i><a href="message.html">信息录入</a> </li>-->
-        <!--</ul>-->
-    <!--</nav>-->
+    <div class="header_center left">
+        <h2><strong>基于优逸客的用户行为分析系统</strong></h2>
+        <p class="color_font"><small>User behavior analysis system for YYK</small></p>
+    </div>
+    <div class="right nav text_right">
+        <ul>
+            <li><i class="nav_7"></i><a href="static.html">查询统计</a></li>
+            <li class="nav_active"><i class="nav_8"></i><a href="message.html">信息录入</a></li>
+        </ul>
+    </div>
 </header>
 <!--内容部分-->
 <div class="con left">
@@ -57,50 +44,50 @@
     <div class="con_div">
         <div class="con_div_text left">
             <div class="con_div_text01 left">
-                <img src="img/info_1.png" class="left text01_img"/>
+                <img src="../static/img/info_1.png" class="left text01_img"/>
                 <div class="left text01_div">
-                    <p>车辆总数(辆)</p>
-                    <p>12356</p>
+                    <p>数据总条数</p>
+                    <p>89519</p>
                 </div>
             </div>
             <div class="con_div_text01 right">
-                <img src="img/info_2.png" class="left text01_img"/>
+                <img src="../static/img/info_2.png" class="left text01_img"/>
                 <div class="left text01_div">
-                    <p>车辆使用数(辆)</p>
-                    <p>12356</p>
+                    <p>数据总条数</p>
+                    <p>89519</p>
                 </div>
             </div>
         </div>
         <div class="con_div_text left">
             <div class="con_div_text01 left">
-                <img src="img/info_4.png" class="left text01_img"/>
+                <img src="../static/img/info_4.png" class="left text01_img"/>
                 <div class="left text01_div">
-                    <p>行驶里程总数(km)</p>
-                    <p class="sky">12356</p>
+                    <p>日报总条数(条)</p>
+                    <p class="sky">76977</p>
                 </div>
             </div>
             <div class="con_div_text01 right">
-                <img src="img/info_5.png" class="left text01_img"/>
+                <img src="../static/img/info_5.png" class="left text01_img"/>
                 <div class="left text01_div">
-                    <p>行驶里程平均数(km)</p>
-                    <p class="sky">12356</p>
+                    <p>日报总条数(条)</p>
+                    <p class="sky">76977</p>
                 </div>
             </div>
         </div>
         <div class="con_div_text left">
 
             <div class="con_div_text01 left">
-                <img src="img/info_6.png" class="left text01_img"/>
+                <img src="../static/img/info_6.png" class="left text01_img"/>
                 <div class="left text01_div">
-                    <p>行驶时长总数(s)</p>
-                    <p class="org">12356</p>
+                    <p>周报总条数(条)</p>
+                    <p class="org">12542</p>
                 </div>
             </div>
             <div class="con_div_text01 right">
-                <img src="img/info_7.png" class="left text01_img"/>
+                <img src="../static/img/info_7.png" class="left text01_img"/>
                 <div class="left text01_div">
-                    <p>行驶ihfj平均数(s)</p>
-                    <p class="org">12356</p>
+                    <p>周报总条数(条)</p>
+                    <p class="org">12542</p>
                 </div>
             </div>
         </div>
@@ -109,27 +96,27 @@
     <div class="div_any">
         <div class="left div_any01">
             <div class="div_any_child">
-                <div class="div_any_title"><img src="img/title_1.png">车辆类型统计 </div>
+                <div class="div_any_title"><img src="../static/img/title_1.png">日周报统计</div>
                 <p id="char1" class="p_chart"></p>
             </div>
             <div class="div_any_child">
-                <div class="div_any_title"><img src="img/title_2.png">车辆状态统计 </div>
+                <div class="div_any_title"><img src="../static/img/title_2.png">每日高峰期</div>
                 <p id="char2" class="p_chart"></p>
             </div>
         </div>
         <div class="div_any02 left ">
             <div class="div_any_child div_height">
-                <div class="div_any_title any_title_width"><img src="img/title_3.png">车辆行驶地图 </div>
+                <div class="div_any_title any_title_width"><img src="../static/img/title_3.png">中北大学地图</div>
                 <div id="map_div"></div>
             </div>
         </div>
         <div class="right div_any01">
             <div class="div_any_child">
-                <div class="div_any_title"><img src="img/title_4.png">车辆行驶统计 </div>
+                <div class="div_any_title"><img src="../static/img/title_4.png">24h提交数量</div>
                 <p id="char3" class="p_chart"></p>
             </div>
             <div class="div_any_child">
-                <div class="div_any_title"><img src="img/title_5.png">车辆报警统计 </div>
+                <div class="div_any_title"><img src="../static/img/title_5.png">车辆报警统计</div>
                 <p id="char4" class="p_chart"></p>
             </div>
         </div>
@@ -138,44 +125,86 @@
     <div class="div_table">
         <div class="left div_table_box">
             <div class="div_any_child">
-                <div class="div_any_title"><img src="img/title_4.png">行驶里程排名前5位 </div>
+                <div class="div_any_title"><img src="../static/img/title_4.png">完成率100前五位</div>
                 <div class="table_p">
                     <table>
-               <thead><tr>
-                   <th>排名</th>
-                   <th>车牌号</th>
-                   <th>里程数（km）</th>
-               </tr>
-               </thead>
-                <tbody>
-                <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                </tbody>
-            </table>
+                        <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>学生号</th>
+                            <th>次数</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2262</td>
+                            <td>165</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1533</td>
+                            <td>160</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2259</td>
+                            <td>155</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2074</td>
+                            <td>153</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>1413</td>
+                            <td>133</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
         </div>
         <div class="left div_table_box">
             <div class="div_any_child">
-                <div class="div_any_title"><img src="img/title_4.png">行驶次数车辆前5位 </div>
+                <div class="div_any_title"><img src="../static/img/title_4.png">随机五位最好格言</div>
                 <div class="table_p">
                     <table>
-                        <thead><tr>
+                        <thead>
+                        <tr>
                             <th>排名</th>
-                            <th>车牌号</th>
-                            <th>次数（km）</th>
+                            <th>学生号</th>
+                            <th>格言</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
+                        <tr>
+                            <td>1</td>
+                            <td>5247</td>
+                            <td>理论加实践</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>5203</td>
+                            <td>读书破万卷</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>5256</td>
+                            <td>所愿皆所成</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>5253</td>
+                            <td>先苦后甜</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>5214</td>
+                            <td>博约而观取</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -183,21 +212,42 @@
         </div>
         <div class="left div_table_box">
             <div class="div_any_child">
-                <div class="div_any_title"><img src="img/title_4.png">行驶最高时速前5位 </div>
+                <div class="div_any_title"><img src="../static/img/title_4.png">日报次数前五个班级</div>
                 <div class="table_p">
                     <table>
-                        <thead><tr>
+                        <thead>
+                        <tr>
                             <th>排名</th>
-                            <th>车牌号</th>
-                            <th>时速（km）</th>
+                            <th>班级号</th>
+                            <th>提交次数</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
+                        <tr>
+                            <td>1</td>
+                            <td>37</td>
+                            <td>3508</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>18</td>
+                            <td>3371</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>48</td>
+                            <td>2970</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>46</td>
+                            <td>2894</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>76</td>
+                            <td>2456</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -205,21 +255,42 @@
         </div>
         <div class="left div_table_box">
             <div class="div_any_child">
-                <div class="div_any_title"><img src="img/title_4.png">行驶时长排名前5位 </div>
+                <div class="div_any_title"><img src="../static/img/title_4.png">周报次数前五个班级</div>
                 <div class="table_p">
                     <table>
-                        <thead><tr>
+                        <thead>
+                        <tr>
                             <th>排名</th>
-                            <th>车牌号</th>
-                            <th>时长（km）</th>
+                            <th>班级号</th>
+                            <th>提交次数</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
-                        <tr><td>1</td><td>京A12345</td><td>134.2</td></tr>
+                        <tr>
+                            <td>1</td>
+                            <td>37</td>
+                            <td>614</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>18</td>
+                            <td>577</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>46</td>
+                            <td>543</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>89</td>
+                            <td>520</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>41</td>
+                            <td>475</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -227,11 +298,6 @@
         </div>
     </div>
 </div>
-<script src="../static/js/jquery/jQuery-2.2.0.min.js"></script>
-<script src="../static/js/echarts-all.js"></script>
-<script src="../static/js/base.js"></script>
-<script src="../static/js/index.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5ieMMexWmzB9jivTq6oCRX9j&callback"></script>
-<script src="../static/js/map.js"></script>
+
 </body>
 </html>

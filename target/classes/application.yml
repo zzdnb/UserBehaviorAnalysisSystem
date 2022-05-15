@@ -9,7 +9,7 @@ spring:
       max-request-size: 50MB
 
 hive:
-  url: jdbc:hive2://180.76.243.209:10000/default
+  url: jdbc:hive2://180.76.243.209:10000/nuc
   driver-class-name: org.apache.hive.jdbc.HiveDriver
   type: com.alibaba.druid.pool.DruidDataSource
   user: hive

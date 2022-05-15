@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "studentNo": 5247,
+    "motto": "理论加实践"
+  },
+  {
+    "id": 2,
+    "studentNo": 5203,
+    "motto": "读书破万卷"
+  },
+  {
+    "id": 3,
+    "studentNo": 5256,
+    "motto": "所愿皆所成"
+  },
+  {
+    "id": 4,
+    "studentNo": 5253,
+    "motto": " 先苦后甜"
+  },
+  {
+    "id": 5,
+    "studentNo": 5214,
+    "motto": "博约而观取"
+  }
+]

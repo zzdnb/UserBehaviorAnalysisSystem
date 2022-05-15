@@ -1,9 +1,11 @@
 package com.nuc.controller;
 
+import java.awt.print.Book;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -12,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 /**
@@ -84,4 +88,22 @@ public class HiveDataSourceController {
         return list;
     }
 
+    //    @GetMapping("/books")
+//    public String list(Model model) {
+//        Collection<Book> all = bookService.list();
+//        model.addAttribute("books", all);
+//        return "book/list";
+//    }
+//    @GetMapping("/daily")
+//    public String list(Model model) {
+//        Collection<Book> all = bookService.list();
+//        model.addAttribute("books", all);
+//        return "book/list";
+//    }
+//    @GetMapping("/exam")
+//    public String list(Model model) {
+//        Collection<Book> all = bookService.list();
+//        model.addAttribute("books", all);
+//        return "book/list";
+//    }
 }

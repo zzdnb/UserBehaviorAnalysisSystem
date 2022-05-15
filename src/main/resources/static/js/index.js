@@ -1,18 +1,15 @@
 /**
  * Created by 30947 on 2018/7/18.
  */
-$(function(){
 
-    char1();
-    char2();
-    char3();
-    char4();
-
-})
 
 //统计分析图
-function char1() {
-
+fetch('http://localhost:8080/static/result/selectDailyRatio.json', {
+    method: "GET",
+}).then(function (response) {
+    // 拿到响应数据并序列化成json
+    return response.json();
+}).then(function (res) {
     var myChart = echarts.init($("#char1")[0]);
 
     option = {
@@ -27,13 +24,13 @@ function char1() {
                 color : '#ffffff',
 
             },
-            data:['客运车','危险品车','网约车','学生校车']
+            data:['日报','周报']
         },
 
         calculable : false,
         series : [
             {
-                name:'车类型',
+                name:'日周报',
                 type:'pie',
                 radius : ['40%', '70%'],
                 itemStyle : {
@@ -57,11 +54,8 @@ function char1() {
                     }
                 },
                 data:[
-                    {value:335, name:'客运车'},
-                    {value:310, name:'危险品车'},
-                    {value:234, name:'网约车'},
-                    {value:135, name:'学生校车'}
-
+                    {value:76977, name:'日报'},
+                    {value:12542, name:'周报'}
                 ]
             }
         ]
@@ -70,8 +64,14 @@ function char1() {
     myChart.setOption(option);
     window.addEventListener('resize', function () {myChart.resize();})
 
-}
-function char2() {
+});
+//统计分析图
+fetch('http://localhost:8080/static/result/selectDailyTrafficPeak.json', {
+    method: "GET",
+}).then(function (response) {
+    // 拿到响应数据并序列化成json
+    return response.json();
+}).then(function (res) {
 
     var myChart = echarts.init($("#char2")[0]);
 
@@ -84,7 +84,7 @@ function char2() {
         },
         grid: {show:'true',borderWidth:'0'},
         legend: {
-            data:['行驶', '停车','熄火','离线'],
+            data:['每日高峰期'],
             textStyle : {
                 color : '#ffffff',
 
@@ -96,7 +96,7 @@ function char2() {
             {
                 type : 'value',
                 axisLabel: {
-                    show: true,
+                    show: false,
                     textStyle: {
                         color: '#fff'
                     }
@@ -104,7 +104,7 @@ function char2() {
                 splitLine:{
                     lineStyle:{
                         color:['#f2f2f2'],
-                        width:0,
+                        width:3,
                         type:'solid'
                     }
                 }
@@ -114,7 +114,7 @@ function char2() {
         yAxis : [
             {
                 type : 'category',
-                data : ['客运车','危险品车','网约车','学生校车'],
+                data : ['时间'],
                 axisLabel: {
                     show: true,
                     textStyle: {
@@ -131,32 +131,11 @@ function char2() {
         ],
         series : [
             {
-                name:'行驶',
+                name:'18:00',
                 type:'bar',
                 stack: '总量',
                 itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
-                data:[320, 302, 301, 334]
-            },
-            {
-                name:'停车',
-                type:'bar',
-                stack: '总量',
-                itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
-                data:[120, 132, 101, 134]
-            },
-            {
-                name:'熄火',
-                type:'bar',
-                stack: '总量',
-                itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
-                data:[220, 182, 191, 234]
-            },
-            {
-                name:'离线',
-                type:'bar',
-                stack: '总量',
-                itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
-                data:[150, 212, 201, 154]
+                data:[21410]
             }
 
         ]
@@ -165,14 +144,20 @@ function char2() {
     myChart.setOption(option);
     window.addEventListener('resize', function () {myChart.resize();})
 
-}
-function char3() {
+});
+//统计分析图
+fetch('http://localhost:8080/static/result/selectDailySubmitNum.json', {
+    method: "GET",
+}).then(function (response) {
+    // 拿到响应数据并序列化成json
+    return response.json();
+}).then(function (res) {
 
     var myChart = echarts.init($("#char3")[0]);
 
     option = {
         legend: {
-            data:['车辆行驶数量'],
+            data:['24h提交数量'],
             textStyle : {
                 color : '#ffffff',
 
@@ -183,59 +168,30 @@ function char3() {
         calculable : false,
         tooltip : {
             trigger: 'axis',
-            formatter: "Temperature : <br/>{b}km : {c}°C"
+            formatter: "一天 : <br/>{b}h : {c}条"
         },
-        xAxis : [
-            {
-                type : 'value',
-                axisLabel : {
-                    formatter: '{value}',
-                    textStyle: {
-                        color: '#fff'
-                    }
-                },
+        xAxis: {
+            type: 'category',
 
-                splitLine:{
-                    lineStyle:{
-                        width:0,
-                        type:'solid'
-                    }
+            data: ['0', '1', '2', '3', '4', '5', '6', '7', '8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23']
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel : {
+                formatter: '{value} ',
+                textStyle: {
+                    color: '#fff'
                 }
             }
-        ],
-        yAxis : [
+        },
+        series: [
             {
-                type : 'category',
-                axisLine : {onZero: false},
-                axisLabel : {
-                    formatter: '{value} km',
-                    textStyle: {
-                        color: '#fff'
-                    }
-                },
-                splitLine:{
-                    lineStyle:{
-                        width:0,
-                        type:'solid'
-                    }
-                },
-                boundaryGap : false,
-                data : ['0', '10', '20', '30', '40', '50', '60', '70', '80']
-            }
-        ],
-        series : [
-            {
-                name:'车辆行驶数量',
-                type:'line',
-                smooth:true,
-                itemStyle: {
-                    normal: {
-                        lineStyle: {
-                            shadowColor : 'rgba(0,0,0,0.4)'
-                        }
-                    }
-                },
-                data:[15, 0, 20, 45, 22.1, 25, 70, 55, 76]
+                data:[222,33,9,2,6,3,4,10,41,137,225,269,234,238,326,392,474,693,21410,18094,12769,10243,10976,11800],
+                type: 'bar',
+                showBackground: true,
+                backgroundStyle: {
+                    color: 'rgba(180, 180, 180, 0.2)'
+                }
             }
         ]
     };
@@ -243,8 +199,14 @@ function char3() {
     myChart.setOption(option);
     window.addEventListener('resize', function () {myChart.resize();})
 
-}
-function char4() {
+});
+//统计分析图
+fetch('http://localhost:8080/table/Top10_Sum_Brand', {
+    method: "GET",
+}).then(function (response) {
+    // 拿到响应数据并序列化成json
+    return response.json();
+}).then(function (res) {
 
     var myChart = echarts.init($("#char4")[0]);
 
@@ -295,7 +257,7 @@ function char4() {
                 type:'bar',
                 stack: '总量',
                 itemStyle : { normal: {label : {show: true, position: 'inside'}}},
-                data:[2900, 1200, 300, 200, 900, 300]
+                data:[2900, 1200, 300, 200]
             }
         ]
     };
@@ -303,4 +265,4 @@ function char4() {
     myChart.setOption(option);
     window.addEventListener('resize', function () {myChart.resize();})
 
-}
+});
