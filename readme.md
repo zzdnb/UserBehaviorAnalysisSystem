@@ -88,6 +88,7 @@ drop table daily;
 ```
 
 ### 数据的显示
+```sql
 显示要求：系统主要实现通过对优逸客实训平台的用户访问数据进行统计分析，
 实现统计分析每日访问量、
 INSERT INTO TABLE  Time_count 
@@ -136,7 +137,7 @@ select studentno ,count(studentno) as cnt from exam where issubmit != 0 group by
 参加考试人最多的前五场考试：
 select paperno ,count(paperno) as cnt from exam group by paperno order by cnt desc limit 5;
 
-
+```
 
 ## 核心代码展示：
 hive-site.xml
